@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roxo & Luxo – Moda e Joias</title>
+    <!-- Fonte elegante e moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Ícones minimalistas (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset e base – fundo roxo como solicitado */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2d1b3c;  /* Roxo profundo e elegante */
+            font-family: 'Inter', sans-serif;
+            color: #f5eafc;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Tipografia com toque de sofisticação */
+        h1, h2, h3, .logo, .item-titulo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        /* HEADER – atmosfera luxo */
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 215, 245, 0.25);
+            padding-bottom: 1.2rem;
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #fde2ff;
+            text-shadow: 0 0 8px rgba(255, 200, 255, 0.5);
+        }
+
+        .logo i {
+            color: #e8c3ff;
+            margin-right: 6px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #e7d1fc;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #ffddf4;
+            text-shadow: 0 0 6px #edb5ff;
+        }
+
+        /* Destaque sutil – frase de impacto */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: rgba(55, 25, 75, 0.55);
+            border-radius: 28px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #a368b5;
+        }
+
+        .hero h2 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #ffefff;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #dcc9f0;
+            font-weight: 300;
+        }
+
+        .hero i {
+            color: #e6bcff;
+            margin: 0 6px;
+        }
+
+        /* Seções – cards de vestidos e joias */
+        .secao {
+            margin-top: 2.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .secao-titulo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #fadcff;
+            border-left: 6px solid #c481e0;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .secao-titulo i {
+            font-size: 2rem;
+            color: #f3c6ff;
+        }
+
+        /* Grade de produtos – vestidos e joias */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        /* CARD – elegância roxa + detalhes refinados */
+        .card {
+            background: linear-gradient(145deg, #392b4a, #2e1f3c);
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 18px 30px -10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            border: 1px solid #a06ba5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 26px 35px -8px #1c0e1e;
+            border-color: #e3acff;
+        }
+
+        /* Ícone/imagem do vestido – representação visual */
+        .icone-vestido, .icone-joia {
+            font-size: 4.8rem;
+            color: #ffddf5;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 8px 18px #a144b0;
+        }
+
+        .icone-joia {
+            color: #ffecb0;  /* brilho de jóia */
+            text-shadow: 0 0 16px #ffb7fa, 0 0 30px #d590e0;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin: 0.5rem 0 0.3rem;
+            color: #ffe3fc;
+            font-weight: 600;
+        }
+
+        .descricao {
+            font-size: 0.98rem;
+            color: #dcc3f0;
+            margin: 0.5rem 0;
+            font-weight: 300;
+        }
+
+        .preco {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: #ffd49f;
+            margin-top: 0.6rem;
+            font-family: 'Playfair Display', serif;
+            border-top: 1px dashed #b784c5;
+            padding-top: 0.8rem;
+            width: 100%;
+        }
+
+        .preco i {
+            margin-right: 6px;
+            color: #ffb6e7;
+            font-size: 1.2rem;
+        }
+
+        /* botão delicado */
+        .btn {
+            margin-top: 1rem;
+            background: rgba(210, 150, 230, 0.2);
+            border: 1.5px solid #c67ace;
+            color: #ffe2ff;
+            padding: 0.55rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 0.95rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            background: #ad62c0;
+            border-color: #fad1ff;
+            color: #fff;
+            box-shadow: 0 0 18px #cb8cd9;
+        }
+
+        /* joias – estilo extra brilhante */
+        .card-joia .icone-joia {
+            font-size: 5rem;
+        }
+
+        /* rodapé harmonioso */
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2rem 0.5rem 1rem;
+            color: #cdb2db;
+            border-top: 1px solid #64446e;
+            font-size: 0.95rem;
+        }
+
+        footer i {
+            color: #ffb3de;
+            margin: 0 4px;
+        }
+
+        /* responsividade suave */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .hero h2 {
+                font-size: 1.9rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* pequenos detalhes de joias extras */
+        .acessorios {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 0.8rem 0 0.2rem;
+            color: #f3d6ff;
+            font-size: 1rem;
+        }
+        .acessorios i {
+            background: #553366;
+            padding: 0.3rem;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho com identidade de moda -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-gem"></i> Roxo&Luxo
+            </div>
+            <nav>
+                <a href="#">Início</a>
+                <a href="#">Vestidos</a>
+                <a href="#">Joias</a>
+                <a href="#">Coleção</a>
+            </nav>
+        </header>
+
+        <!-- Mensagem principal – elegância roxa -->
+        <div class="hero">
+            <h2><i class="fas fa-star"></i> Sofisticação em Roxo <i class="fas fa-star"></i></h2>
+            <p>Vestidos dos sonhos e joias que contam histórias</p>
+        </div>
+
+        <!-- SEÇÃO VESTIDOS BONITOS (fundo roxo, claro!) -->
+        <section class="secao">
+            <div class="secao-titulo">
+                <i class="fas fa-dress"></i> 
+                Vestidos que encantam
+            </div>
+            <div class="grid">
+                <!-- Vestido 1 – romântico -->
+                <div class="card">
+                    <div class="icone-vestido">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Lavanda Silvestre</h3>
+                    <div class="descricao">
+                        <i class="fas fa-feather-alt" style="color: #d9a3f2;"></i> Vestido midi fluido, mangas sino em renda roxa.
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 389
+                    </div>
+                    <button class="btn">Ver detalhes</button>
+                </div>
+                <!-- Vestido 2 – sofisticado -->
+                <div class="card">
+                    <div class="icone-vestido">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Ametista Real</h3>
+                    <div class="descricao">
+                        <i class="fas fa-crown" style="color: #efc3ff;"></i> Longo acetinado, fenda e decote profundo.
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 599
+                    </div>
+                    <button class="btn">Ver detalhes</button>
+                </div>
+                <!-- Vestido 3 – contemporâneo -->
+                <div class="card">
+                    <div class="icone-vestido">
+                        <i class="fas fa-vest"></i>
+                    </div>
+                    <h3>Orquídea Noturna</h3>
+                    <div class="descricao">
+                        <i class="fas fa-moon"></i> Tom roxo-azulado, paetês discretos e caimento perfeito.
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 449
+                    </div>
+                    <button class="btn">Ver detalhes</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO JOIAS LINDAS (brilho e requinte) -->
+        <section class="secao">
+            <div class="secao-titulo">
+                <i class="fas fa-gem"></i>
+                Joias que apaixonam
+            </div>
+            <div class="grid">
+                <!-- Joia 1 – colar -->
+                <div class="card card-joia">
+                    <div class="icone-joia">
+                        <i class="fas fa-gem"></i> 
+                    </div>
+                    <h3>Colar Imperial</h3>
+                    <div class="descricao">
+                        <i class="fas fa-sparkle"></i> Ametista lapidada e corrente em ouro rosé.
+                    </div>
+                    <div class="acessorios">
+                        <i class="fas fa-circle" style="color: #d4af37;"></i> 
+                        <i class="fas fa-circle" style="color: #b084cc;"></i>
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 1.290
+                    </div>
+                    <button class="btn">Ver joia</button>
+                </div>
+                <!-- Joia 2 – brincos -->
+                <div class="card card-joia">
+                    <div class="icone-joia">
+                        <i class="fas fa-earrings"></i>
+                    </div>
+                    <h3>Pétalas de Lis</h3>
+                    <div class="descricao">
+                        Brincos em prata de lei com topázio roxo e zircônias.
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 790
+                    </div>
+                    <button class="btn">Ver joia</button>
+                </div>
+                <!-- Joia 3 – anel -->
+                <div class="card card-joia">
+                    <div class="icone-joia">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3>Anel Obsidiana</h3>
+                    <div class="descricao">
+                        Anel em ouro branco, cravejado de diamantes negros e ametistas.
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 2.450
+                    </div>
+                    <button class="btn">Ver joia</button>
+                </div>
+                <!-- Joia 4 – pulseira -->
+                <div class="card card-joia">
+                    <div class="icone-joia">
+                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-gem" style="font-size: 2rem; margin-left: 5px;"></i>
+                    </div>
+                    <h3>Pulseira Aurora</h3>
+                    <div class="descricao">
+                        Elos pavê de cristal lavanda e fecho invisível.
+                    </div>
+                    <div class="preco">
+                        <i class="fas fa-tag"></i> € 1.150
+                    </div>
+                    <button class="btn">Ver joia</button>
+                </div>
+            </div>
+            <div style="text-align: right; margin-top: 0.5rem; color: #dbbcec; font-style: italic;">
+                <i class="fas fa-star"></i> edição limitada
+            </div>
+        </section>
+
+        <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+            <div style="background: #352249; padding: 1.2rem 2rem; border-radius: 60px; border: 1px solid #a86bb3;">
+                <i class="fas fa-diamond" style="color: #f6c9ff;"></i>  Coleção Roxo Vintage <i class="fas fa-diamond" style="color: #f6c9ff;"></i>
+            </div>
+        </div>
+
+        <!-- Rodapé com charme -->
+        <footer>
+            <p><i class="fas fa-copyright"></i> 2025 Roxo&Luxo – Ateliê de Moda e Joalheria </p>
+            <p style="margin-top: 0.6rem; font-size: 0.9rem;">
+                <i class="fas fa-dress"></i> vestidos autorais · 
+                <i class="fas fa-gem"></i> joias finas ·  
+                <i class="fas fa-feather"></i> feito com paixão
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
